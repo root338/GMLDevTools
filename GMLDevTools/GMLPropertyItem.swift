@@ -34,8 +34,9 @@ struct GMLPropertyItem {
     let level: Int
     let classType: GMLClassType
     let includeProperties: [GMLClassProperties]
-    let name: String
+    let name: String?
     private(set) var subItem: [GMLPropertyItem]?
+    var error: Error?
     
     var propertyString : String {
         var propertiesText : String?
