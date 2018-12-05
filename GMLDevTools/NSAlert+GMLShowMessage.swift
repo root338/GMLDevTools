@@ -9,11 +9,15 @@
 import Cocoa
 
 extension NSAlert {
-    class func showMessage(_ msg: String) {
+    class func show(message: String, title: String = "提示") {
+        
         let alert = NSAlert.init()
-        alert.messageText = msg
-        
+        alert.alertStyle = .warning
+        alert.messageText = title
+        alert.informativeText = message
         alert.addButton(withTitle: "确定")
-        
+        alert.beginSheetModal(for: NSApplication.shared.keyWindow!) { (response) in
+            
+        }
     }
 }

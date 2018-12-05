@@ -28,11 +28,15 @@ class ViewController: NSViewController {
     @IBAction func handleToPropertyAction(_ sender: Any) {
         
         let text = textView.attributedString().string
+        guard text.count > 0 else {
+            NSAlert.show(message: "内容不能为空")
+            return
+        }
         do {
             let jsonText = try GMLJSONText.init(text: text)
             jsonText.propertiesText()
         } catch {
-            
+            NSAlert.show(message: "创建解析类失败，请检查JSON数据是否正确")
         }
         
         
