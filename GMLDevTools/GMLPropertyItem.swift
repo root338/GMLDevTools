@@ -35,10 +35,14 @@ struct GMLPropertyItem {
     let classType: GMLClassType
     let includeProperties: [GMLClassProperties]
     let name: String?
-    private(set) var subItem: [GMLPropertyItem]?
+    private(set) var subItem: [[GMLPropertyItem]]?
     var error: Error?
     
-    var propertyString : String {
+    var propertyString : String? {
+        
+        guard let name = self.name else {
+            return nil;
+        }
         var propertiesText : String?
         for propertiesValue in includeProperties {
             if propertiesText == nil {
@@ -51,7 +55,7 @@ struct GMLPropertyItem {
         return "@property (\(propertiesText!)) \(classType.rawValue) *\(name);"
     }
     
-    mutating func addSubitem(_ item: GMLPropertyItem) {
+    mutating func addSubitem(_ item: [GMLPropertyItem]) {
         subItem?.append(item)
     }
 }

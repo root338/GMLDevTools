@@ -22,7 +22,7 @@ class GMLJSONText: NSObject {
     let jsonObj : Any
     
     init(text: String, encoding: String.Encoding = .utf8) throws {
-        super.init()
+        
         guard let data = text.data(using: encoding) else {
             throw GMLJSONTextError.toDataError
         }
@@ -34,15 +34,29 @@ class GMLJSONText: NSObject {
         }
         self.originText = text
         self.encoding = encoding
+        
+        super.init()
     }
-    
-    
-    
 }
 
 //MARK:- 对外接口
 extension GMLJSONText {
-    
+    func propertiesText() {
+        guard let result = try? analysis(value: jsonObj, level: 0) else {
+            print("出错啦")
+            return
+        }
+        
+        guard let resultItem = result else {
+            return
+        }
+        
+        for item in resultItem {
+            if let propertyStr = item.propertyString {
+                print(propertyStr)
+            }
+        }
+    }
 }
 
 //MARK:- Private Method
@@ -75,48 +89,35 @@ fileprivate extension GMLJSONText {
         return classTypeValue!
     }
     
-    func analysis(value: Any, level: Int) throws -> GMLPropertyItem? {
+    func analysis(value: Any, level: Int) throws -> [GMLPropertyItem]? {
         guard try shouldDownAnalysis(value: value, level: level) else {
             return nil
         }
         
+        var resultItems = [GMLPropertyItem]()
         if let dict = value as? NSDictionary {
+            
             for (key, value) in dict {
                 guard let paramKey = key as? String else {
                     throw GMLJSONTextError.keyMustIsString
                 }
                 var item = createItem(name: paramKey, value: value, level: level)
-                guard let subitem = try analysis(value: value, level: level - 1) else {
-                    break
+                
+                resultItems.append(item)
+                guard let subitem = try analysis(value: value, level: level + 1) else {
+                    continue
                 }
                 item.addSubitem(subitem)
             }
-        }else if let array = value as? NSArray {
             
-        }
-    }
-    
-    func handleArray(_ value: [Any]) {
-        
-    }
-    
-    func handleInputContent(_ inputContent: Any, level: Int) -> GMLPropertyItem {
-        
-        let classTypeValue = classType(value: inputContent)
-        let includePropertiesValue = properties()
-        let name : String
-        
-        if let dict = inputContent as? [String : Any] {
-            for (key, value) in dict {
-                var item = createItem(name: key, value: value, level: level)
-                item.addSubitem(handleInputContent(value, level: level - 1))
+        }else if let array = value as? NSArray, let firstObj = array.firstObject {
+            var item = createItem(name: nil, value: firstObj, level: level)
+            if let subitem = try analysis(value: firstObj, level: level + 1) {
+                item.addSubitem(subitem)
             }
-        }else if let array = inputContent as? [Any] {
-            
-            var item = createItem(name: nil, value: array.first!, level: level)
+            resultItems.append(item)
         }
-        
-        return items
+        return resultItems.count > 0 ? resultItems : nil
     }
     
     func createItem(name: String?, value: Any, level: Int) -> GMLPropertyItem {

@@ -28,9 +28,13 @@ class ViewController: NSViewController {
     @IBAction func handleToPropertyAction(_ sender: Any) {
         
         let text = textView.attributedString().string
-        guard let data = text.data(using: .utf8) else {
-            return
+        do {
+            let jsonText = try GMLJSONText.init(text: text)
+            jsonText.propertiesText()
+        } catch {
+            
         }
+        
         
     }
 }
