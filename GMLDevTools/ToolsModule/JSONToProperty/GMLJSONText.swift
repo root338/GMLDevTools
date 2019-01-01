@@ -8,9 +8,15 @@
 
 import Cocoa
 
+/// 处理JSON时的错误
+///
+/// - encoding: 输入字符串的编码错误
+/// - toJSONFaild: 数据转OC对象时错误
+/// - irregularData: 内部数据格式错误，比如数组中包含多种数据类型
+/// - keyMustIsString: 字典的key必须为 String 类型
 enum GMLJSONTextError: Error {
-    case toDataError
-    case toJSONError
+    case encoding
+    case toJSONFaild
     case irregularData
     case keyMustIsString
 }
@@ -24,13 +30,13 @@ class GMLJSONText: NSObject {
     init(text: String, encoding: String.Encoding = .utf8) throws {
         
         guard let data = text.data(using: encoding) else {
-            throw GMLJSONTextError.toDataError
+            throw GMLJSONTextError.encoding
         }
         do {
             let jsonObj = try JSONSerialization.jsonObject(with: data, options: .mutableContainers)
             self.jsonObj = jsonObj
         }catch {
-            throw GMLJSONTextError.toJSONError
+            throw GMLJSONTextError.toJSONFaild
         }
         self.originText = text
         self.encoding = encoding
@@ -62,6 +68,13 @@ extension GMLJSONText {
 //MARK:- Private Method
 fileprivate extension GMLJSONText {
     
+    /// 传入数据是否可以继续向下解析
+    ///
+    /// - Parameters:
+    ///   - value: 判断的数据
+    ///   - level: 数据在原始数据的等级
+    /// - Returns: 返回是否可以向下解析
+    /// - Throws: GMLJSONTextError 错误
     func shouldDownAnalysis(value: Any, level: Int) throws ->Bool {
         if value is NSDictionary {
             return true
@@ -73,7 +86,7 @@ fileprivate extension GMLJSONText {
         }
         return false
     }
-    
+    /// 查看数组是否是同一类型数据
     func internalClassType(for array: NSArray) throws ->GMLClassType {
         var classTypeValue : GMLClassType?
         for value in array {

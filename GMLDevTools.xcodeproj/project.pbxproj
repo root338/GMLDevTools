@@ -8,16 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		1842036F21B45B6000552F4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1842036E21B45B6000552F4C /* AppDelegate.swift */; };
-		1842037121B45B6000552F4C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1842037021B45B6000552F4C /* ViewController.swift */; };
 		1842037321B45B6100552F4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1842037221B45B6100552F4C /* Assets.xcassets */; };
 		1842037621B45B6100552F4C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1842037421B45B6100552F4C /* Main.storyboard */; };
 		1842038221B45B6100552F4C /* GMLDevToolsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1842038121B45B6100552F4C /* GMLDevToolsTests.swift */; };
 		1842038D21B45B6100552F4C /* GMLDevToolsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1842038C21B45B6100552F4C /* GMLDevToolsUITests.swift */; };
 		187ACF5121B4BD2D00C98D67 /* GMLJSONText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187ACF5021B4BD2D00C98D67 /* GMLJSONText.swift */; };
 		18A8A17E21B4663F00EB59E2 /* NSAlert+GMLShowMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A8A17D21B4663F00EB59E2 /* NSAlert+GMLShowMessage.swift */; };
-		18A8A18021B46E2200EB59E2 /* String+GMLAdd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A8A17F21B46E2200EB59E2 /* String+GMLAdd.swift */; };
 		18A8A18221B48A5700EB59E2 /* GMLPropertyItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A8A18121B48A5700EB59E2 /* GMLPropertyItem.swift */; };
 		18A8A18621B48B9000EB59E2 /* GMLTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A8A18521B48B9000EB59E2 /* GMLTest.m */; };
+		AB72FC5B21BBA943005AFB54 /* GMLToolsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB72FC5A21BBA943005AFB54 /* GMLToolsVC.swift */; };
+		AB72FC5D21BBA96B005AFB54 /* GMLToolsWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB72FC5C21BBA96B005AFB54 /* GMLToolsWindowController.swift */; };
+		AB72FC6121BBAE92005AFB54 /* GMLJSONVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB72FC6021BBAE92005AFB54 /* GMLJSONVC.swift */; };
+		ABEA3D0B21BC271600C614D5 /* GMLPropertiesSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEA3D0A21BC271600C614D5 /* GMLPropertiesSelectView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +42,6 @@
 /* Begin PBXFileReference section */
 		1842036B21B45B6000552F4C /* GMLDevTools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GMLDevTools.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1842036E21B45B6000552F4C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1842037021B45B6000552F4C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1842037221B45B6100552F4C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1842037521B45B6100552F4C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1842037721B45B6100552F4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -53,11 +54,14 @@
 		1842038E21B45B6100552F4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		187ACF5021B4BD2D00C98D67 /* GMLJSONText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMLJSONText.swift; sourceTree = "<group>"; };
 		18A8A17D21B4663F00EB59E2 /* NSAlert+GMLShowMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAlert+GMLShowMessage.swift"; sourceTree = "<group>"; };
-		18A8A17F21B46E2200EB59E2 /* String+GMLAdd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+GMLAdd.swift"; sourceTree = "<group>"; };
 		18A8A18121B48A5700EB59E2 /* GMLPropertyItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMLPropertyItem.swift; sourceTree = "<group>"; };
 		18A8A18321B48B8F00EB59E2 /* GMLDevTools-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GMLDevTools-Bridging-Header.h"; sourceTree = "<group>"; };
 		18A8A18421B48B9000EB59E2 /* GMLTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GMLTest.h; sourceTree = "<group>"; };
 		18A8A18521B48B9000EB59E2 /* GMLTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GMLTest.m; sourceTree = "<group>"; };
+		AB72FC5A21BBA943005AFB54 /* GMLToolsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMLToolsVC.swift; sourceTree = "<group>"; };
+		AB72FC5C21BBA96B005AFB54 /* GMLToolsWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMLToolsWindowController.swift; sourceTree = "<group>"; };
+		AB72FC6021BBAE92005AFB54 /* GMLJSONVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMLJSONVC.swift; sourceTree = "<group>"; };
+		ABEA3D0A21BC271600C614D5 /* GMLPropertiesSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMLPropertiesSelectView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,7 +96,6 @@
 				1842038021B45B6100552F4C /* GMLDevToolsTests */,
 				1842038B21B45B6100552F4C /* GMLDevToolsUITests */,
 				1842036C21B45B6000552F4C /* Products */,
-				1842037821B45B6100552F4C /* GMLDevTools.entitlements */,
 			);
 			sourceTree = "<group>";
 		};
@@ -109,14 +112,14 @@
 		1842036D21B45B6000552F4C /* GMLDevTools */ = {
 			isa = PBXGroup;
 			children = (
+				AB72FC5E21BBAA8B005AFB54 /* ToolsModule */,
+				AB72FC5921BBA916005AFB54 /* GMLHome */,
+				1842037821B45B6100552F4C /* GMLDevTools.entitlements */,
 				1842036E21B45B6000552F4C /* AppDelegate.swift */,
-				1842037021B45B6000552F4C /* ViewController.swift */,
-				187ACF5021B4BD2D00C98D67 /* GMLJSONText.swift */,
 				18A8A18121B48A5700EB59E2 /* GMLPropertyItem.swift */,
 				18A8A18421B48B9000EB59E2 /* GMLTest.h */,
 				18A8A18521B48B9000EB59E2 /* GMLTest.m */,
 				18A8A17D21B4663F00EB59E2 /* NSAlert+GMLShowMessage.swift */,
-				18A8A17F21B46E2200EB59E2 /* String+GMLAdd.swift */,
 				1842037221B45B6100552F4C /* Assets.xcassets */,
 				1842037421B45B6100552F4C /* Main.storyboard */,
 				1842037721B45B6100552F4C /* Info.plist */,
@@ -141,6 +144,41 @@
 				1842038E21B45B6100552F4C /* Info.plist */,
 			);
 			path = GMLDevToolsUITests;
+			sourceTree = "<group>";
+		};
+		AB72FC5921BBA916005AFB54 /* GMLHome */ = {
+			isa = PBXGroup;
+			children = (
+				AB72FC5A21BBA943005AFB54 /* GMLToolsVC.swift */,
+				AB72FC5C21BBA96B005AFB54 /* GMLToolsWindowController.swift */,
+			);
+			path = GMLHome;
+			sourceTree = "<group>";
+		};
+		AB72FC5E21BBAA8B005AFB54 /* ToolsModule */ = {
+			isa = PBXGroup;
+			children = (
+				AB72FC5F21BBAA99005AFB54 /* JSONToProperty */,
+			);
+			path = ToolsModule;
+			sourceTree = "<group>";
+		};
+		AB72FC5F21BBAA99005AFB54 /* JSONToProperty */ = {
+			isa = PBXGroup;
+			children = (
+				ABEA3D0921BC26D300C614D5 /* Views */,
+				187ACF5021B4BD2D00C98D67 /* GMLJSONText.swift */,
+				AB72FC6021BBAE92005AFB54 /* GMLJSONVC.swift */,
+			);
+			path = JSONToProperty;
+			sourceTree = "<group>";
+		};
+		ABEA3D0921BC26D300C614D5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				ABEA3D0A21BC271600C614D5 /* GMLPropertiesSelectView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -275,11 +313,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				18A8A17E21B4663F00EB59E2 /* NSAlert+GMLShowMessage.swift in Sources */,
-				18A8A18021B46E2200EB59E2 /* String+GMLAdd.swift in Sources */,
 				18A8A18621B48B9000EB59E2 /* GMLTest.m in Sources */,
 				18A8A18221B48A5700EB59E2 /* GMLPropertyItem.swift in Sources */,
-				1842037121B45B6000552F4C /* ViewController.swift in Sources */,
+				AB72FC5B21BBA943005AFB54 /* GMLToolsVC.swift in Sources */,
 				187ACF5121B4BD2D00C98D67 /* GMLJSONText.swift in Sources */,
+				AB72FC6121BBAE92005AFB54 /* GMLJSONVC.swift in Sources */,
+				ABEA3D0B21BC271600C614D5 /* GMLPropertiesSelectView.swift in Sources */,
+				AB72FC5D21BBA96B005AFB54 /* GMLToolsWindowController.swift in Sources */,
 				1842036F21B45B6000552F4C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
